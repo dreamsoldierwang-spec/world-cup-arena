@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "teams": "Teams",
+    "compare": "Compare",
+    "groups": "Groups",
+    "statistics": "Statistics"
+  },
+  "home": {
+    "title": "2026 FIFA World Cup Arena",
+    "subtitle": "Comprehensive Analysis of All 48 Teams",
+    "overview": "Tournament Overview",
+    "totalTeams": "Teams",
+    "totalMatches": "Matches",
+    "hostCountries": "Host Countries",
+    "duration": "Duration",
+    "topTeams": "Top Teams",
+    "viewAll": "View All Teams",
+    "continentDistribution": "Continental Distribution",
+    "rankingDistribution": "FIFA Ranking Distribution"
+  },
+  "teams": {
+    "title": "All Teams",
+    "search": "Search teams...",
+    "filterByGroup": "Filter by Group",
+    "filterByConfederation": "Filter by Confederation",
+    "sortBy": "Sort by",
+    "fifaRanking": "FIFA Ranking",
+    "name": "Team Name",
+    "group": "Group",
+    "confederation": "Confederation",
+    "viewDetail": "View Details"
+  },
+  "teamDetail": {
+    "overview": "Overview",
+    "ratings": "Power Analysis",
+    "squad": "Squad",
+    "history": "History",
+    "coach": "Head Coach",
+    "fifaRanking": "FIFA Ranking",
+    "confederation": "Confederation",
+    "group": "Group",
+    "attack": "Attack",
+    "defense": "Defense",
+    "midfield": "Midfield",
+    "physical": "Physical",
+    "tactics": "Tactics",
+    "experience": "Experience",
+    "starters": "Starters",
+    "substitutes": "Substitutes",
+    "position": "Position",
+    "age": "Age",
+    "club": "Club",
+    "caps": "National Caps",
+    "goals": "National Goals",
+    "career": "Career",
+    "honors": "Honors",
+    "recentResults": "Recent Results",
+    "competition": "Competition",
+    "year": "Year",
+    "result": "Result",
+    "matches": "Matches",
+    "wins": "Wins",
+    "draws": "Draws",
+    "losses": "Losses",
+    "goalsFor": "Goals For",
+    "goalsAgainst": "Goals Against"
+  },
+  "compare": {
+    "title": "Team Comparison",
+    "selectTeams": "Select Teams",
+    "addTeam": "Add Team",
+    "removeTeam": "Remove",
+    "radarCompare": "Radar Comparison",
+    "barCompare": "Bar Comparison",
+    "historyCompare": "History Comparison"
+  },
+  "groups": {
+    "title": "Group Analysis",
+    "group": "Group",
+    "teams": "Teams",
+    "strengthCompare": "Strength Comparison",
+    "qualificationPrediction": "Qualification Prediction"
+  },
+  "statistics": {
+    "title": "Statistics",
+    "continentStats": "Continental Stats",
+    "ageDistribution": "Player Age Distribution",
+    "clubDistribution": "Club Distribution",
+    "coachDistribution": "Coach Nationality",
+    "topScorers": "Top Scorers",
+    "topRated": "Top Rated Players"
+  },
+  "common": {
+    "loading": "Loading...",
+    "noData": "No Data",
+    "back": "Back",
+    "close": "Close",
+    "more": "More",
+    "all": "All"
+  }
+}
