@@ -14,6 +14,7 @@ const navItems = [
   { key: 'teams', path: '/teams' },
   { key: 'compare', path: '/compare' },
   { key: 'groups', path: '/groups' },
+  { key: 'ratings', path: '/ratings' },
   { key: 'statistics', path: '/statistics' },
 ]
 </script>

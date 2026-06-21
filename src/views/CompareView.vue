@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTeamStore } from '@/stores/teamStore'
-import RadarChart from '@/components/charts/RadarChart.vue'
+import LineChart from '@/components/charts/LineChart.vue'
 import BarChart from '@/components/charts/BarChart.vue'
 
 const { t, locale } = useI18n()
@@ -20,21 +20,28 @@ const selectedTeams = computed(() => {
     .filter(Boolean)
 })
 
-const radarData = computed(() => {
+const lineData = computed(() => {
   return selectedTeams.value.map((team, index) => ({
     name: team!.name,
     nameEn: team!.nameEn,
     ratings: team!.ratings,
-    color: ['#fbbf24', '#f59e0b', '#ef4444', '#10b981'][index % 4],
+    color: ['#3b82f6', '#ef4444', '#10b981', '#a855f7'][index % 4],
   }))
 })
 
 const barData = computed(() => {
   const dimensions = ['attack', 'defense', 'midfield', 'physical', 'tactics', 'experience']
-  return dimensions.map(dim => ({
-    name: t(`teamDetail.${dim}`),
-    value: selectedTeams.value.reduce((sum, team) => sum + (team?.ratings[dim as keyof typeof team.ratings] || 0), 0) / selectedTeams.value.length,
-  }))
+  return {
+    dimensions: dimensions.map(dim => t(`teamDetail.${dim}`)),
+    series: selectedTeams.value.map((team, index) => {
+      const t = team!
+      return {
+        name: locale.value === 'zh' ? t.name : t.nameEn,
+        data: dimensions.map(dim => t.ratings[dim as keyof typeof t.ratings]),
+        color: ['#3b82f6', '#ef4444', '#10b981', '#a855f7'][index % 4],
+      }
+    }),
+  }
 })
 
 const addTeam = (teamId: string) => {
@@ -90,10 +97,10 @@ const removeTeam = (teamId: string) => {
 
     <!-- Comparison Charts -->
     <div v-if="selectedTeams.length >= 2" class="space-y-8">
-      <!-- Radar Chart -->
+      <!-- Line Chart -->
       <div class="glass-card p-6">
-        <h2 class="text-lg font-bold gradient-text mb-4">{{ t('compare.radarCompare') }}</h2>
-        <RadarChart :data="radarData" :locale="locale" />
+        <h2 class="text-lg font-bold gradient-text mb-4">{{ t('compare.lineCompare') }}</h2>
+        <LineChart :data="lineData" :locale="locale" />
       </div>
 
       <!-- Bar Chart -->

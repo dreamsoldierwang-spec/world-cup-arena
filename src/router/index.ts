@@ -35,6 +35,11 @@ const router = createRouter({
       component: () => import('../views/GroupDetailView.vue'),
     },
     {
+      path: '/ratings',
+      name: 'ratings',
+      component: () => import('../views/RatingsTableView.vue'),
+    },
+    {
       path: '/statistics',
       name: 'statistics',
       component: () => import('../views/StatisticsView.vue'),

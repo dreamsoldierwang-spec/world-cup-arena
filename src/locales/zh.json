@@ -4,6 +4,7 @@
     "teams": "球队总览",
     "compare": "对比分析",
     "groups": "小组分析",
+    "ratings": "战力排行榜",
     "statistics": "数据总览"
   },
   "home": {
@@ -17,7 +18,7 @@
     "topTeams": "热门球队",
     "viewAll": "查看全部球队",
     "continentDistribution": "各大洲球队分布",
-    "rankingDistribution": "FIFA排名分布"
+    "rankingDistribution": "Top 10综合战力对比"
   },
   "teams": {
     "title": "球队总览",
@@ -71,8 +72,8 @@
     "selectTeams": "选择球队",
     "addTeam": "添加球队",
     "removeTeam": "移除",
-    "radarCompare": "雷达图对比",
-    "barCompare": "柱状图对比",
+    "lineCompare": "六维战力走势对比",
+    "barCompare": "分项战力数值对比",
     "historyCompare": "历史战绩对比"
   },
   "groups": {
@@ -80,7 +81,15 @@
     "group": "小组",
     "teams": "球队",
     "strengthCompare": "实力对比",
-    "qualificationPrediction": "出线预测"
+    "qualificationPrediction": "出线预测",
+    "prevGroup": "上一组",
+    "nextGroup": "下一组"
+  },
+  "ratings": {
+    "title": "战力排行榜",
+    "subtitle": "48支参赛球队六大维度战力数值一览",
+    "avg": "综合战力",
+    "footer": "共 {count} 支参赛球队 · 点击球队名称或小组查看详情"
   },
   "statistics": {
     "title": "数据总览",
@@ -97,6 +106,9 @@
     "back": "返回",
     "close": "关闭",
     "more": "更多",
-    "all": "全部"
+    "all": "全部",
+    "since": "执教",
+    "backToGroup": "返回小组",
+    "backToRatings": "战力排行榜"
   }
 }

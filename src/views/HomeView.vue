@@ -36,10 +36,13 @@ const rankingData = computed(() => {
   return [...store.teams]
     .sort((a, b) => a.fifaRanking - b.fifaRanking)
     .slice(0, 10)
-    .map(t => ({
-      name: locale.value === 'zh' ? t.name : t.nameEn,
-      value: t.fifaRanking,
-    }))
+    .map(t => {
+      const totalPower = Object.values(t.ratings).reduce((sum, v) => sum + v, 0)
+      return {
+        name: locale.value === 'zh' ? t.name : t.nameEn,
+        value: totalPower,
+      }
+    })
 })
 </script>
 
@@ -47,8 +50,14 @@ const rankingData = computed(() => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Hero Section -->
     <div class="glass-card p-8 mb-8 relative overflow-hidden">
-      <!-- Background decoration -->
+      <!-- Background decoration - football pattern -->
       <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+      
+      <!-- Football decorative elements -->
+      <div class="absolute top-4 right-8 text-primary/10 text-8xl select-none pointer-events-none">⚽</div>
+      <div class="absolute bottom-16 right-24 text-white/5 text-5xl select-none pointer-events-none">🏆</div>
+      <div class="absolute top-20 left-8 text-white/5 text-4xl select-none pointer-events-none">🏟️</div>
       
       <div class="relative z-10">
         <div class="tag-pill bg-primary/10 text-primary mb-4">
@@ -85,19 +94,23 @@ const rankingData = computed(() => {
 
       <!-- Stats Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 relative z-10">
-        <div class="glass-card p-4 text-center">
+        <div class="glass-card p-4 text-center relative overflow-hidden">
+          <div class="absolute -right-2 -top-2 text-primary/10 text-3xl">⚽</div>
           <div class="text-2xl font-black text-primary">48</div>
           <div class="text-xs text-text-muted mt-1">{{ t('home.totalTeams') }}</div>
         </div>
-        <div class="glass-card p-4 text-center">
+        <div class="glass-card p-4 text-center relative overflow-hidden">
+          <div class="absolute -right-2 -top-2 text-primary/10 text-3xl">📅</div>
           <div class="text-2xl font-black text-primary">104</div>
           <div class="text-xs text-text-muted mt-1">{{ t('home.totalMatches') }}</div>
         </div>
-        <div class="glass-card p-4 text-center">
+        <div class="glass-card p-4 text-center relative overflow-hidden">
+          <div class="absolute -right-2 -top-2 text-primary/10 text-3xl">🌎</div>
           <div class="text-2xl font-black text-primary">3</div>
           <div class="text-xs text-text-muted mt-1">{{ t('home.hostCountries') }}</div>
         </div>
-        <div class="glass-card p-4 text-center">
+        <div class="glass-card p-4 text-center relative overflow-hidden">
+          <div class="absolute -right-2 -top-2 text-primary/10 text-3xl">⏱️</div>
           <div class="text-2xl font-black text-primary">39</div>
           <div class="text-xs text-text-muted mt-1">{{ t('home.duration') }}</div>
         </div>
@@ -113,7 +126,7 @@ const rankingData = computed(() => {
       </div>
       <div class="glass-card p-6">
         <h2 class="section-title">{{ t('home.rankingDistribution') }}</h2>
-        <p class="section-subtitle">Top 10 teams by FIFA ranking</p>
+        <p class="section-subtitle">Top 10 teams by comprehensive power rating</p>
         <BarChart :data="rankingData" horizontal />
       </div>
     </div>

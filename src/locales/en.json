@@ -4,6 +4,7 @@
     "teams": "Teams",
     "compare": "Compare",
     "groups": "Groups",
+    "ratings": "Rankings",
     "statistics": "Statistics"
   },
   "home": {
@@ -17,7 +18,7 @@
     "topTeams": "Top Teams",
     "viewAll": "View All Teams",
     "continentDistribution": "Continental Distribution",
-    "rankingDistribution": "FIFA Ranking Distribution"
+    "rankingDistribution": "Top 10 Power Comparison"
   },
   "teams": {
     "title": "All Teams",
@@ -71,8 +72,8 @@
     "selectTeams": "Select Teams",
     "addTeam": "Add Team",
     "removeTeam": "Remove",
-    "radarCompare": "Radar Comparison",
-    "barCompare": "Bar Comparison",
+    "lineCompare": "Six-Dimension Power Trend",
+    "barCompare": "Dimension Power Value Comparison",
     "historyCompare": "History Comparison"
   },
   "groups": {
@@ -80,7 +81,15 @@
     "group": "Group",
     "teams": "Teams",
     "strengthCompare": "Strength Comparison",
-    "qualificationPrediction": "Qualification Prediction"
+    "qualificationPrediction": "Qualification Prediction",
+    "prevGroup": "Previous",
+    "nextGroup": "Next"
+  },
+  "ratings": {
+    "title": "Power Rankings",
+    "subtitle": "6-Dimension Power Ratings of All 48 Teams",
+    "avg": "Avg",
+    "footer": "{count} teams · Click team name or group for details"
   },
   "statistics": {
     "title": "Statistics",
@@ -97,6 +106,9 @@
     "back": "Back",
     "close": "Close",
     "more": "More",
-    "all": "All"
+    "all": "All",
+    "since": "Since",
+    "backToGroup": "Back to Group",
+    "backToRatings": "Rankings"
   }
 }

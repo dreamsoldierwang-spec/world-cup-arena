@@ -13,6 +13,23 @@ const store = useTeamStore()
 const team = computed(() => store.getTeamById(route.params.id as string))
 const activeTab = ref('overview')
 
+// Determine back route based on referrer
+const backRoute = computed(() => {
+  const from = router.options.history.state?.back as string | undefined
+  if (from?.includes('/ratings')) return '/ratings'
+  if (from?.includes('/groups')) {
+    // Return to the specific group this team belongs to
+    return `/groups/${team.value?.group || ''}`
+  }
+  return '/teams'
+})
+const backLabel = computed(() => {
+  const from = router.options.history.state?.back as string | undefined
+  if (from?.includes('/ratings')) return t('common.backToRatings')
+  if (from?.includes('/groups')) return t('common.backToGroup')
+  return t('nav.teams')
+})
+
 const tabs = [
   { key: 'overview', label: 'teamDetail.overview' },
   { key: 'ratings', label: 'teamDetail.ratings' },
@@ -62,6 +79,16 @@ const substitutes = computed(() => sortedPlayers.value.filter(p => !p.isStarter)
 
 <template>
   <div v-if="team" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Back Button -->
+    <div class="mb-4">
+      <button
+        @click="router.push(backRoute)"
+        class="px-4 py-2 glass-card hover:bg-white/10 transition-colors text-text-primary text-sm"
+      >
+        ← {{ backLabel }}
+      </button>
+    </div>
+
     <!-- Team Header -->
     <div class="glass-card p-6 mb-6">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -119,7 +146,7 @@ const substitutes = computed(() => sortedPlayers.value.filter(p => !p.isStarter)
               <div class="glass-card p-4">
                 <div class="font-bold text-text-primary">{{ locale === 'zh' ? team.coach.name : team.coach.nameEn }}</div>
                 <div class="text-sm text-text-secondary mt-1">
-                  {{ locale === 'zh' ? team.coach.nationality : team.coach.nationalityEn }} · {{ team.coach.age }}岁 · {{ t('teamDetail.since') }} {{ team.coach.since }}
+                  {{ locale === 'zh' ? team.coach.nationality : team.coach.nationalityEn }} · {{ team.coach.age }}岁 · {{ t('common.since') }} {{ team.coach.since }}
                 </div>
                 <div class="text-sm text-text-secondary mt-1">{{ t('teamDetail.tactics') }}: {{ team.coach.tacticalStyle }}</div>
                 <div class="mt-3">
